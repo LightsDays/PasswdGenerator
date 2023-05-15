@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Source\Cross.png" />
+    <None Remove="Source\Logo.png" />
+    <None Remove="Source\Minus.png" />
+    <None Remove="Source\Social.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Source\Cross.png" />
+    <Resource Include="Source\Logo.png" />
+    <Resource Include="Source\Minus.png" />
+    <Resource Include="Source\Social.png" />
+  </ItemGroup>
+
+</Project>
