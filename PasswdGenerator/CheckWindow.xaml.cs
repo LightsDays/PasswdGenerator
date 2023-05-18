@@ -19,16 +19,9 @@ namespace PasswdGenerator
     /// </summary>
     public partial class CheckWindow : Window
     {
-        public string ViewModel { get; set; }
-
         public CheckWindow()
         {
             InitializeComponent();
-        }
-
-        public void ShowViewModel()
-        {
-            MessageBox.Show(ViewModel);
         }
 
         private void MinButton_MouseDown(object sender, MouseButtonEventArgs e)
