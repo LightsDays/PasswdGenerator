@@ -5,42 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswdGenerator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
-    <Window.Background>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="#FF024E68"/>
-            <GradientStop Color="#FF411C4A" Offset="0.996"/>
-        </LinearGradientBrush>
-    </Window.Background>
-    
-    <Grid>
-        
-        <Grid.RowDefinitions>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        Height="600" Width="920" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True">
 
-        <Border Grid.ColumnSpan="2" Grid.RowSpan="2" BorderThickness="1" BorderBrush="#FF5F5F5F"/>
-        <Grid Name="ToolBar" Background="Transparent" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" MouseDown="ToolBar_MouseDown">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+    <Border>
+        <Border.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF024E68"/>
+                <GradientStop Color="#FF411C4A" Offset="0.996"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="700"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-                <Image Name="MinButton" Height="25" Width="25" Source="/Source/Minus.png" MouseDown="MinButton_MouseDown"/>
-                <Image Name="CloseButton" Height="25" Width="25" Source="/Source/Cross.png" MouseDown="CloseButton_MouseDown"/>
-            </StackPanel>
-        </Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-        <Grid Name="Main" Grid.Row="1" Grid.Column="0">
-            <StackPanel>
-                <Border Name="brdCheck" Grid.Column="1" Height="35" Style="{StaticResource MainBorder}">
+            <!--<TextBox Text="Passwd"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Foreground="White"
+                     FontSize="22"
+                     Margin="20,0,0,0" Background="{x:Null}"/>-->
+            
+            <!--<Border Grid.ColumnSpan="2" 
+            Grid.RowSpan="2" 
+            BorderThickness="1" 
+            BorderBrush="#FF5F5F5F"/>-->
+            <!--<Grid Name="ToolBar" Background="Transparent" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" MouseDown="ToolBar_MouseDown">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+
+                    <Image Name="MinButton" Height="25" Width="25" Source="/Source/Minus.png" MouseDown="MinButton_MouseDown"/>
+                    <Image Name="CloseButton" Height="25" Width="25" Source="/Source/Cross.png" MouseDown="CloseButton_MouseDown"/>
+                </StackPanel>
+            </Grid>-->
+
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <RadioButton Content="ГЛАВНАЯ"
+                             Style="{StaticResource MenuButtonBlackTheme}"/>
+
+                <RadioButton Content="ПРОВЕРКА"
+                             Style="{StaticResource MenuButtonBlackTheme}"/>
+                
+                <RadioButton Content="ГЕНЕРАТОР"
+                             Style="{StaticResource MenuButtonBlackTheme}"/>
+
+                <!--Foreground="White"-->
+
+
+
+                <!--<Border Name="brdCheck" Grid.Column="1" Height="35" Style="{StaticResource MainBorder}">
                     <Button Name="btnCheck" Content="Проверка" Style="{StaticResource MainButton}" Click="BtnCheck_Click"/>
                 </Border>
 
                 <Border Name="brdGenerator" Grid.Column="1" Style="{StaticResource MainBorder}">
-                    <Button Name="btnGenerator" Content="Генератор" Style="{StaticResource MainButton}"/>
+                    <Button Name="btnGenerator" Content="Генератор" Style="{StaticResource MainButton}" Click="btnGenerator_Click"/>
                 </Border>
 
                 <Border Name="brdHistory" Grid.Column="1" Style="{StaticResource MainBorder}">
@@ -49,13 +77,14 @@
 
                 <Border Name="brdAbout" Grid.Column="1" Style="{StaticResource MainBorder}">
                     <Button Name="btnAbout" Content="О программе" Style="{StaticResource MainButton}"/>
-                </Border>
+                </Border>-->
             </StackPanel>
-        </Grid>
 
-        <Grid Name="LogoContainer" Grid.Row="1" Grid.Column="1">
-            <Image Name="Logo" Source="/Source/Logo.png"/>
-        </Grid>
+            <Grid Name="LogoContainer" Grid.Row="1">
+                <Image Name="Logo" Source="Images/Logo.png"/>
+            </Grid>
 
-    </Grid>
+        </Grid>
+    </Border>
+    
 </Window>

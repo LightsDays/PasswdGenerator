@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\App.xaml
-21769303397
+3-1706557059
 
-61003809320
+81545978112
 198-1175457984
-CheckWindow.xaml;MainWindow.xaml;
+CheckWindow.xaml;MainWindow.xaml;Theme\MenuButtonBlackTheme.xaml;
 
 True
 

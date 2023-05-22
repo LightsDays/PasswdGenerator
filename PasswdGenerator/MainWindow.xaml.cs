@@ -100,5 +100,10 @@ namespace PasswdGenerator
             checkWindow.Show();
             this.Close();
         }
+
+        private void btnGenerator_Click(object sender, RoutedEventArgs e)
+        {
+          //  PageFrame.Content = new Page1();
+        }
     }
 }

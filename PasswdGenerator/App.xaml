@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:PasswdGenerator"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style TargetType="Button" x:Key="MainButton">
+        <!--<Style TargetType="Button" x:Key="MainButton">
 
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="Background" Value="#FF0E86CA"/>
@@ -62,7 +62,7 @@
         <Style TargetType="Border" x:Key="MainBorder">
             <Setter Property="BorderBrush" Value="#FF00AEFF"/>
             <Setter Property="Height" Value="35"/>
-            <Setter Property="Margin" Value="20"/>
+            <Setter Property="Margin" Value="0"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Background" Value="#FF0E3A59"/>
             
@@ -82,6 +82,13 @@
                     </BeginStoryboard>
                 </EventTrigger>
             </Style.Triggers>
-        </Style>
+        </Style>-->
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonBlackTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    
     </Application.Resources>
 </Application>
