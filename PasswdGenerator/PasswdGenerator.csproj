@@ -21,4 +21,8 @@
     <Resource Include="Images\Social.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="MVVM\Model\" />
+  </ItemGroup>
+
 </Project>

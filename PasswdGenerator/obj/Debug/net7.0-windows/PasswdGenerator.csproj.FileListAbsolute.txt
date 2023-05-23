@@ -23,3 +23,8 @@ C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-win
 C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-windows\CheckWindow.baml
 C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-windows\App.baml
 C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-windows\Theme\MenuButtonBlackTheme.baml
+C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-windows\MVVM\View\HomeView.g.cs
+C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-windows\MVVM\View\HomeView.baml
+C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-windows\MVVM\View\GeneratorView.g.cs
+C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-windows\MVVM\View\GeneratorView.baml
