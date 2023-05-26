@@ -76,34 +76,12 @@ namespace PasswdGenerator
             return passwordBuilder.ToString();
         }
 
-        private void CloseButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void MinButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
-        }
-
-        private void ToolBar_MouseDown(object sender, MouseButtonEventArgs e)
+        private void MainGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
             {
                 this.DragMove();
             }
-        }
-
-        private void BtnCheck_Click(object sender, RoutedEventArgs e)
-        {
-            CheckWindow checkWindow = new();
-            checkWindow.Show();
-            this.Close();
-        }
-
-        private void btnGenerator_Click(object sender, RoutedEventArgs e)
-        {
-          //  PageFrame.Content = new Page1();
         }
     }
 }

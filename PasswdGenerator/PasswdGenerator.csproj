@@ -8,16 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\Cross.png" />
+    <None Remove="Images\CheckedImage.png" />
     <None Remove="Images\Logo.png" />
-    <None Remove="Images\Minus.png" />
     <None Remove="Images\Social.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\Cross.png" />
+    <Resource Include="Images\CheckedImage.png" />
     <Resource Include="Images\Logo.png" />
-    <Resource Include="Images\Minus.png" />
     <Resource Include="Images\Social.png" />
   </ItemGroup>
 

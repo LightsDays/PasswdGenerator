@@ -7,11 +7,48 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="ГЕНЕРАТОР" 
-                   Foreground="White" 
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   FontSize="40"
-                   FontWeight="Bold"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBox Name="tbGeneratedPasswd" Grid.ColumnSpan="3" 
+                 Background="Transparent" 
+                 FontSize="30" 
+                 Foreground="White" 
+                 FontWeight="Bold"
+                 Text="Passw@%*OfrdNamesPAsec"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center">
+
+        </TextBox>
+
+        <StackPanel Grid.Row="1">
+            <Slider Grid.Row="1" 
+                    HorizontalAlignment="Left"
+                    Width="120" Maximum="64" 
+                    Minimum="1" 
+                    Value="8" Foreground="#FFB90E0E" BorderBrush="#FFCC1717" AutoToolTipPlacement="TopLeft"/>
+
+            <ToggleButton Content="Цифры" 
+                      Grid.Row="1"
+                      Style="{StaticResource ToggleButtonBlackTheme}"/>
+
+            <ToggleButton Content="Спецсимволы" 
+                      Grid.Row="1"
+                      Style="{StaticResource ToggleButtonBlackTheme}"/>
+
+            <ToggleButton Content="Без повторений" 
+                      Grid.Row="1"
+                      Style="{StaticResource ToggleButtonBlackTheme}"/>
+        </StackPanel>
+
+
     </Grid>
 </UserControl>

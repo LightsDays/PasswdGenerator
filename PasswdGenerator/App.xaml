@@ -89,6 +89,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/MenuButtonBlackTheme.xaml"/>
+                <ResourceDictionary Source="Theme/ToggleButtonBlackTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
@@ -98,7 +99,7 @@
             <DataTemplate DataType="{x:Type viewModel:GeneratorViewModel}">
                 <view:GeneratorView/>
             </DataTemplate>
-
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

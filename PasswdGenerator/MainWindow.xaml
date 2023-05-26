@@ -16,19 +16,15 @@
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
-    
-    <Border>
+
+    <Border CornerRadius="10" BorderThickness="1" BorderBrush="#FF272727">
         <Border.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FF024E68"/>
-                <GradientStop Color="#FF411C4A" Offset="0.996"/>
+                <GradientStop Color="#FF15171E" Offset="0"/>
+                <GradientStop Color="#FF15171E" Offset="1"/>
             </LinearGradientBrush>
         </Border.Background>
-        <Grid >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="700"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+        <Grid Name="MainGrid" Background="Transparent" MouseDown="MainGrid_MouseDown" >
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="75"/>
@@ -41,7 +37,7 @@
                      Foreground="White"
                      FontSize="22"
                      Margin="20,0,0,0" Background="{x:Null}"/>-->
-            
+
             <!--<Border Grid.ColumnSpan="2" 
             Grid.RowSpan="2" 
             BorderThickness="1" 
@@ -70,28 +66,24 @@
                 <Border Name="brdAbout" Grid.Column="1" Style="{StaticResource MainBorder}">
                     <Button Name="btnAbout" Content="О программе" Style="{StaticResource MainButton}"/> </Border>-->
 
-            <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,20,0">
                 <RadioButton Content="ГЛАВНАЯ"
-                             Style="{StaticResource MenuButtonBlackTheme}"
                              IsChecked="True"
+                             Style="{StaticResource MenuButtonBlackTheme}"
                              Command="{Binding HomeViewCommand}"/>
 
                 <RadioButton Content="ПРОВЕРКА"
-                             Style="{StaticResource MenuButtonBlackTheme}"
-                             Command="{Binding GeneratorViewCommand}"/>
-                
+                             Style="{StaticResource MenuButtonBlackTheme}"/>
+
                 <RadioButton Content="ГЕНЕРАТОР"
                              Style="{StaticResource MenuButtonBlackTheme}"
-                             />
-
-                
+                             Command="{Binding GeneratorViewCommand}"/>
             </StackPanel>
 
             <ContentControl Grid.Row = "1"
-                            Grid.ColumnSpan="2"
-                            Margin="10"
+                            Margin="30,10,30,10"
                             Content="{Binding CurrentView}"/>
         </Grid>
     </Border>
-    
+
 </Window>

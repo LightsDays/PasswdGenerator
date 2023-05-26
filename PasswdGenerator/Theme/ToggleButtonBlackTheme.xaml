@@ -1,0 +1,92 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
+           TargetType="{x:Type ToggleButton}" 
+           x:Key="ToggleButtonBlackTheme">
+        <Style.Setters>
+            <Setter Property="Foreground" Value="#FFACB3BF"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="0,15,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Border Height="20" Width="20" CornerRadius="2"
+                                BorderThickness="1" Background="Black"
+                                HorizontalAlignment="Left">
+                                <!--<Path x:Name="pth" Data="M1 6l3 3 8-8" 
+                                      Fill="Transparent" 
+                                      Stroke="#0572ec"
+                                      StrokeEndLineCap="Round"
+                                      StrokeLineJoin="Round"   
+                                      StrokeThickness="2"
+                                      VerticalAlignment="Center" 
+                                      HorizontalAlignment="Center" Visibility="Hidden">
+                                    <Path.Style>
+                                        <Style TargetType="{x:Type Path}">
+                                            <Style.Triggers>
+                                                
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Path.Style>
+                                </Path>-->
+                                <!--<Path Data="M0 0 12 12 M0 12 12 0" Stroke="#FF0E86CA" StrokeThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center"></Path>-->
+                                <!--<svg xmlns="http://www.w3.org/2000/svg" width="13" height="10">
+                                    <path fill="none" stroke="#0572ec" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 6l3 3 8-8"/>-->
+                                <Border.Style>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="BorderBrush" Value="#FF333842"/>
+                                        
+                                        <Style.Triggers>
+                                            
+                                            <!--<DataTrigger Binding="{Binding IsChecked, 
+                                                RelativeSource={RelativeSource 
+                                                AncestorType={x:Type ToggleButton}}}" Value="True">
+                                                <Setter Property="DataContext" Value="Some"/>
+                                            </DataTrigger>-->
+                                            
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="BorderBrush" Value="#FF51555C"/>
+                                            </Trigger>
+                                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                                                    Duration="0:0:0.100" To="#FF51555C"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                                
+                                <Image Margin="4">
+                                    <Image.Style>
+                                        <Style>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsChecked, 
+                                                RelativeSource={RelativeSource 
+                                                AncestorType={x:Type ToggleButton}}}" Value="True">
+                                                    <Setter Property="Image.Source" Value="pack://application:,,,/PasswdGenerator;../../Images/CheckedImage.png"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Border>
+                            <ContentPresenter Content="{TemplateBinding Content}" 
+                                              Margin="10,0,0,0" 
+                                              VerticalAlignment="Center" 
+                                              HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+       
+    </Style>
+
+    
+   
+</ResourceDictionary>
