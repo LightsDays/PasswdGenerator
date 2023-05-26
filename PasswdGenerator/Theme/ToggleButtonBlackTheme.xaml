@@ -37,15 +37,14 @@
                                 <Border.Style>
                                     <Style TargetType="{x:Type Border}">
                                         <Setter Property="BorderBrush" Value="#FF333842"/>
-                                        
                                         <Style.Triggers>
-                                            
+
                                             <!--<DataTrigger Binding="{Binding IsChecked, 
                                                 RelativeSource={RelativeSource 
                                                 AncestorType={x:Type ToggleButton}}}" Value="True">
                                                 <Setter Property="DataContext" Value="Some"/>
                                             </DataTrigger>-->
-                                            
+
                                             <Trigger Property="IsMouseOver" Value="True">
                                                 <Setter Property="BorderBrush" Value="#FF51555C"/>
                                             </Trigger>
@@ -60,7 +59,7 @@
                                         </Style.Triggers>
                                     </Style>
                                 </Border.Style>
-                                
+
                                 <Image Margin="4">
                                     <Image.Style>
                                         <Style>
@@ -70,23 +69,26 @@
                                                 AncestorType={x:Type ToggleButton}}}" Value="True">
                                                     <Setter Property="Image.Source" Value="pack://application:,,,/PasswdGenerator;../../Images/CheckedImage.png"/>
                                                 </DataTrigger>
+
+                                                <DataTrigger Binding="{Binding IsChecked, 
+                                                RelativeSource={RelativeSource 
+                                                AncestorType={x:Type ToggleButton}}}" Value="{x:Null}">
+                                                    <Setter Property="Image.Source" Value="pack://application:,,,/PasswdGenerator;../../Images/BlueBox.png"/>
+                                                </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
                                     </Image.Style>
                                 </Image>
                             </Border>
-                            <ContentPresenter Content="{TemplateBinding Content}" 
+                            <ContentPresenter x:Name="cpContent" Content="{TemplateBinding Content}" 
                                               Margin="10,0,0,0" 
                                               VerticalAlignment="Center" 
-                                              HorizontalAlignment="Center"/>
+                                              HorizontalAlignment="Center">
+                            </ContentPresenter>
                         </StackPanel>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style.Setters>
-       
     </Style>
-
-    
-   
 </ResourceDictionary>
