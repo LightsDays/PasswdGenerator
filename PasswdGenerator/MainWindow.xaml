@@ -66,7 +66,7 @@
                 <Border Name="brdAbout" Grid.Column="1" Style="{StaticResource MainBorder}">
                     <Button Name="btnAbout" Content="О программе" Style="{StaticResource MainButton}"/> </Border>-->
 
-            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,20,0">
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,30,0">
                 <RadioButton Content="ГЛАВНАЯ"
                              IsChecked="True"
                              Style="{StaticResource MenuButtonBlackTheme}"
@@ -79,7 +79,18 @@
                              Style="{StaticResource MenuButtonBlackTheme}"
                              Command="{Binding GeneratorViewCommand}"/>
             </StackPanel>
+            <StackPanel Grid.Row="0" 
+                        Orientation="Horizontal" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Top">
 
+                <Border></Border>
+                <!--Background="#FFB72525"-->
+                <Button Name="bClose" 
+                        Style="{StaticResource CloseButtonBlackTheme}"  
+                        Height="30" 
+                        Width="40" Click="bClose_Click"/>
+            </StackPanel>
             <ContentControl Grid.Row = "1"
                             Margin="30,10,30,10"
                             Content="{Binding CurrentView}"/>
