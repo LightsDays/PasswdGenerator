@@ -104,11 +104,6 @@ namespace PasswdGenerator.MVVM.View
             GeneratePassword();
         }
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            GeneratePassword();
-        }
-
         private void tbNumbers_Click(object sender, RoutedEventArgs e)
         {
             GeneratePassword();
@@ -127,6 +122,21 @@ namespace PasswdGenerator.MVVM.View
         private void tbUnique_Click(object sender, RoutedEventArgs e)
         {
             GeneratePassword();
+        }
+
+        private void bRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            GeneratePassword();
+        }
+
+        private void UserControl_Initialized(object sender, EventArgs e)
+        {
+            GeneratePassword();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            sLength.Value = 12;
         }
     }
 }

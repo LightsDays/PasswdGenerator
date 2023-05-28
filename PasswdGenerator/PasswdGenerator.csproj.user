@@ -30,6 +30,9 @@
     <Page Update="Theme\MenuButtonBlackTheme.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Theme\RefreshButtonBlackTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Theme\ToggleButtonBlackTheme.xaml">
       <SubType>Designer</SubType>
     </Page>

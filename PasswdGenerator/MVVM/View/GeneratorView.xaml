@@ -41,12 +41,14 @@
                     ValueChanged="sLength_ValueChanged" Foreground="#FF100237" BorderBrush="#FFC32222" />
 
             <ToggleButton Name="tbNumbers" 
+                          IsChecked="False"
                           Content="Цифры" 
                           Grid.Row="1"
                           Style="{StaticResource ToggleButtonBlackTheme}" 
                           Click="tbNumbers_Click"/>
 
             <ToggleButton Name="tbSpecSymbols"
+                          IsChecked="False"
                           Content="Спецсимволы" 
                           Grid.Row="1"
                           Style="{StaticResource ToggleButtonBlackTheme}" Click="tbSpecSymbols_Click"
@@ -54,45 +56,28 @@
 
             <ToggleButton Name="tbUpperLowerSymbols"
                           Grid.Row="1"
+                          IsChecked="False"
                           Content="Нижний регистр"
                           Style="{StaticResource ToggleButtonBlackTheme}" 
                           IsThreeState="True" Click="tbUpperLowerSymbols_Click"
                           />
 
             <ToggleButton Name="tbUnique"
+                          IsChecked="False"
                           Content="Без повторений" 
                           Grid.Row="1"
                           Style="{StaticResource ToggleButtonBlackTheme}" Click="tbUnique_Click" 
                           />
         </StackPanel>
 
-        <Grid Grid.Column="1" Grid.Row="1" Height="24" Width="24">
-            <Path RenderTransformOrigin="0.5,0.5" Stretch="Fill" Name="test" Fill="#FF0E86CA" Data="M 13.2988281 19.8847656 L 13.7070312 20.292968700000003 C 14.0976562 20.683593700000003 14.0976562 21.316406200000003 13.7070312 21.707031200000003 C 13.511718799999999 21.902343800000004 13.255859399999999 22.000000000000004 13 22.000000000000004 C 12.744140600000001 22.000000000000004 12.4882812 21.902343700000003 12.2929687 21.707031200000003 L 10.2929687 19.707031200000003 C 9.9023437 19.316406200000003 9.9023437 18.683593700000003 10.2929687 18.292968700000003 L 12.2929687 16.292968700000003 C 12.6835937 15.902343700000003 13.3164062 15.902343700000003 13.7070312 16.292968700000003 C 14.0976562 16.683593700000003 14.0976562 17.316406200000003 13.7070312 17.707031200000003 L 13.6503906 17.763671800000004 C 16.1577148 17.044433600000005 18 14.735839800000004 18 12.000000000000004 C 18 10.396972700000003 17.3759766 8.889648400000004 16.2431641 7.756835900000003 C 15.852539100000001 7.366210900000003 15.852539100000001 6.733398400000003 16.2431641 6.342773400000003 C 16.6337891 5.952148400000003 17.2666016 5.952148400000003 17.6572266 6.342773400000003 C 19.1679688 7.853515600000003 20 9.862304700000003 20 12.000000000000004 C 20 15.967773400000004 17.0927734 19.261230500000003 13.2988281 19.8847656 z M 6 12.000000000000002 C 6 9.264160200000003 7.8422852 6.955566400000002 10.3496094 6.2363281000000015 L 10.2929688 6.292968700000001 C 9.9023438 6.683593700000001 9.9023438 7.316406200000001 10.2929688 7.707031200000001 C 10.4882813 7.9023438000000015 10.744140600000001 8.000000000000002 11 8.000000000000002 C 11.255859399999999 8.000000000000002 11.5117188 7.902343700000002 11.7070313 7.707031200000002 L 13.7070313 5.707031200000002 C 14.0976563 5.316406200000002 14.0976563 4.683593700000002 13.7070313 4.292968700000002 L 11.7070313 2.292968700000002 C 11.3164063 1.902343700000002 10.6835938 1.902343700000002 10.2929688 2.292968700000002 C 9.9023438 2.683593700000002 9.9023438 3.316406200000002 10.2929688 3.707031200000002 L 10.7011719 4.115234300000002 C 6.9072266 4.738769500000002 4 8.032226600000001 4 12.000000000000002 C 4 14.1376953 4.8320313 16.146484400000002 6.3427734000000004 17.6572266 C 6.5380859000000004 17.8525391 6.793945300000001 17.950195400000002 7.0498047 17.950195400000002 C 7.3056640999999996 17.950195400000002 7.5615235 17.8525391 7.756836 17.6572266 C 8.147461 17.2666016 8.147461 16.6337891 7.756836 16.2431641 C 6.6240234 15.110351600000001 6 13.6030273 6 12 z" Margin="0,-15,-7,0">
-                <Path.RenderTransform>
-                    <RotateTransform CenterX="0.5" CenterY="0.5" Angle="0" />
-
-                    <!--<TransformGroup>
-                        <ScaleTransform ScaleX="2" ScaleY="2"/>
-                        <RotateTransform CenterX="0.5" CenterY="0.5" Angle="0" />
-                    </TransformGroup>-->
-                </Path.RenderTransform>
-                <Path.Triggers>
-                    <EventTrigger RoutedEvent="Loaded">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation Storyboard.TargetProperty="(Path.RenderTransform).(RotateTransform.Angle)" 
-                                                 From="0" 
-                                                 To="360" 
-                                                 Duration="0:0:3" 
-                                                 RepeatBehavior="Forever"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                </Path.Triggers>
-            </Path>
-        </Grid>
-
-
-
+        <Button Name="bRefresh"    
+                Grid.Row="1"    
+                Grid.Column="1"    
+                HorizontalAlignment="Center"    
+                VerticalAlignment="Top"    
+                Background="Transparent"    
+                Style="{StaticResource RefreshButtonBlackTheme}"      
+                ToolTip="Обновить"    
+                Click="bRefresh_Click"/>
     </Grid>
 </UserControl>

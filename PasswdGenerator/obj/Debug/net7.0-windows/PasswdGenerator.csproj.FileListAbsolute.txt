@@ -28,3 +28,4 @@ C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-win
 C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-windows\PasswdGenerator.genruntimeconfig.cache
 C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-windows\ref\PasswdGenerator.dll
 C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-windows\Theme\CloseButtonBlackTheme.baml
+C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-windows\Theme\RefreshButtonBlackTheme.baml

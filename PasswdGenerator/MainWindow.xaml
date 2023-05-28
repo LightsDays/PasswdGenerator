@@ -84,8 +84,6 @@
                         HorizontalAlignment="Right" 
                         VerticalAlignment="Top">
 
-                <Border></Border>
-                <!--Background="#FFB72525"-->
                 <Button Name="bClose" 
                         Style="{StaticResource CloseButtonBlackTheme}"  
                         Height="30" 
