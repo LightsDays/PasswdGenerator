@@ -27,6 +27,12 @@
     <Page Update="Theme\CloseButtonBlackTheme.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Theme\InteractionBorderBlackTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Theme\InteractionButtonBlackTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Theme\MenuButtonBlackTheme.xaml">
       <SubType>Designer</SubType>
     </Page>

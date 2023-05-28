@@ -136,7 +136,16 @@ namespace PasswdGenerator.MVVM.View
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            sLength.Value = 64;
+            sLength.Value = 12;
+        }
+
+        private void btnCopy_Click(object sender, RoutedEventArgs e)
+        {
+            if (tbGeneratedPasswd.Text.Length > 0)
+            {
+                Clipboard.Clear();
+                Clipboard.SetText(tbGeneratedPasswd.Text);
+            }
         }
     }
 }

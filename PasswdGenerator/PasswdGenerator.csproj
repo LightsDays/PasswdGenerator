@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Roboto.ttf" />
     <None Remove="Images\BlueBox.png" />
     <None Remove="Images\CheckedImage.png" />
     <None Remove="Images\Logo.png" />
@@ -15,6 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fonts\Roboto.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\BlueBox.png" />
     <Resource Include="Images\CheckedImage.png" />
     <Resource Include="Images\Logo.png" />

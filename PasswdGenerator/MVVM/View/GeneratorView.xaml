@@ -77,12 +77,25 @@
 
         <Button Name="bRefresh"    
                 Grid.Row="1"    
-                Grid.Column="1"    
-                HorizontalAlignment="Center"    
-                VerticalAlignment="Top"    
+                Grid.Column="2"    
+                HorizontalAlignment="Left"    
+                VerticalAlignment="Top"   
+                Margin="5"
                 Background="Transparent"    
                 Style="{StaticResource RefreshButtonBlackTheme}"      
                 ToolTip="Обновить"    
                 Click="bRefresh_Click"/>
+
+        <Border Grid.Column="1"
+                Margin="5"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                Height="35"
+                Style="{StaticResource InteractionBorderBlackTheme}">
+            <Button Name="btnCopy" 
+                    Content="Скопировать"
+                    FontSize="24"
+                    Style="{StaticResource InteractionButtonBlackTheme}" Click="btnCopy_Click"/>
+        </Border>
     </Grid>
 </UserControl>
