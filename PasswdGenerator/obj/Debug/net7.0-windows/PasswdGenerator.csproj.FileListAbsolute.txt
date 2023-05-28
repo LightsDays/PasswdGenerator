@@ -31,3 +31,5 @@ C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-win
 C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-windows\Theme\RefreshButtonBlackTheme.baml
 C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-windows\Theme\InteractionButtonBlackTheme.baml
 C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-windows\Theme\InteractionBorderBlackTheme.baml
+C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-windows\MVVM\View\CheckView.g.cs
+C:\Users\Canec\source\repos\PasswdGenerator\PasswdGenerator\obj\Debug\net7.0-windows\MVVM\View\CheckView.baml

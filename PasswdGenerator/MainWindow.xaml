@@ -73,7 +73,8 @@
                              Command="{Binding HomeViewCommand}"/>
 
                 <RadioButton Content="ПРОВЕРКА"
-                             Style="{StaticResource MenuButtonBlackTheme}"/>
+                             Style="{StaticResource MenuButtonBlackTheme}"
+                             Command="{Binding CheckViewCommand}" />
 
                 <RadioButton Content="ГЕНЕРАТОР"
                              Style="{StaticResource MenuButtonBlackTheme}"

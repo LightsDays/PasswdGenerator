@@ -21,6 +21,11 @@ namespace PasswdGenerator.MVVM.View
     /// </summary>
     public partial class GeneratorView : UserControl
     {
+        private const string lowerCaseCharsRu = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+        private const string lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
+        private const string specialChars = "!@#$%^&*()_+";
+        private const string numbers = "0123456789";
+
         public GeneratorView()
         {
             InitializeComponent();
@@ -28,39 +33,43 @@ namespace PasswdGenerator.MVVM.View
 
         private string GeneratePassword()
         {
-            const string lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
-            const string specialChars = "!@#$%^&*()_+";
-            const string numbers = "0123456789";
             bool unique = false;
 
             StringBuilder passwordBuilder = new StringBuilder();
             string allowedChars = "";
 
-            if (tbNumbers.IsChecked ?? false)
-            {
+            if (tbNumbers.IsChecked ?? false) 
                 allowedChars += numbers;
-            }
 
-            if (tbSpecSymbols.IsChecked ?? false)
-            {
+            if (tbSpecSymbols.IsChecked ?? false) 
                 allowedChars += specialChars;
-            }
 
             if (tbUpperLowerSymbols.IsChecked ?? false)
             {
-                allowedChars += lowerCaseChars.ToUpper();
                 tbUpperLowerSymbols.Content = "Верхний регистр";
+
+                allowedChars += lowerCaseChars.ToUpper();
+                if (tbRuSymbols.IsChecked ?? false)
+                    allowedChars += lowerCaseCharsRu.ToUpper();
             }
             else if (tbUpperLowerSymbols.IsChecked == false)
             {
-                allowedChars += lowerCaseChars;
                 tbUpperLowerSymbols.Content = "Нижний регистр";
+                allowedChars += lowerCaseChars;
+                if (tbRuSymbols.IsChecked ?? false)
+                    allowedChars += lowerCaseCharsRu;
             }
             else
             {
+                tbUpperLowerSymbols.Content = "Оба регистра";
+
                 allowedChars += lowerCaseChars.ToUpper();
                 allowedChars += lowerCaseChars;
-                tbUpperLowerSymbols.Content = "Оба регистра";
+                if (tbRuSymbols.IsChecked ?? false)
+                {
+                    allowedChars += lowerCaseCharsRu.ToUpper();
+                    allowedChars += lowerCaseCharsRu;
+                }
             }
 
             if (tbUnique.IsChecked ?? false)
@@ -76,7 +85,6 @@ namespace PasswdGenerator.MVVM.View
                 unique = false;
             }
 
-            
             using (var rng = new RNGCryptoServiceProvider())
             {
                 var length = (int)sLength.Value;
@@ -129,11 +137,6 @@ namespace PasswdGenerator.MVVM.View
             GeneratePassword();
         }
 
-        private void UserControl_Initialized(object sender, EventArgs e)
-        {
-            GeneratePassword();
-        }
-
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             sLength.Value = 12;
@@ -146,6 +149,11 @@ namespace PasswdGenerator.MVVM.View
                 Clipboard.Clear();
                 Clipboard.SetText(tbGeneratedPasswd.Text);
             }
+        }
+
+        private void tbRuSymbols_Click(object sender, RoutedEventArgs e)
+        {
+            GeneratePassword();
         }
     }
 }

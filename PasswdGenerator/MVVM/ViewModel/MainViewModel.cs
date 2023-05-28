@@ -11,9 +11,11 @@ namespace PasswdGenerator.MVVM.ViewModel
     {
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand GeneratorViewCommand { get; set; }
+        public RelayCommand CheckViewCommand { get; set; }
 
         public HomeViewModel HomeVM { get; set; }
         public GeneratorViewModel GeneratorVM { get; set; }
+        public CheckViewModel CheckVM { get; set; }
 
         private object _currentView;
 
@@ -31,6 +33,7 @@ namespace PasswdGenerator.MVVM.ViewModel
         {
             HomeVM = new HomeViewModel();
             GeneratorVM = new GeneratorViewModel();
+            CheckVM = new CheckViewModel();
             CurrentView = HomeVM;
 
             HomeViewCommand = new RelayCommand(o =>
@@ -41,6 +44,11 @@ namespace PasswdGenerator.MVVM.ViewModel
             GeneratorViewCommand = new RelayCommand(o =>
             {
                 CurrentView = GeneratorVM;
+            });
+
+            CheckViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = CheckVM;
             });
         }
     }

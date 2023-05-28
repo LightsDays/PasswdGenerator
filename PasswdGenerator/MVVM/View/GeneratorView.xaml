@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="90"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Border Grid.ColumnSpan="3"
@@ -28,7 +28,8 @@
                  FontSize="30" 
                  Foreground="White" 
                  FontWeight="Bold"
-                 TextAlignment="Center"/>
+                 TextAlignment="Center"
+                 CaretBrush="White"/>
         </Border>
 
         <StackPanel Grid.Row="1">
@@ -56,23 +57,26 @@
                           IsChecked="False"
                           Content="Спецсимволы" 
                           Grid.Row="1"
-                          Style="{StaticResource ToggleButtonBlackTheme}" Click="tbSpecSymbols_Click"
-                          />
+                          Style="{StaticResource ToggleButtonBlackTheme}" Click="tbSpecSymbols_Click"/>
 
             <ToggleButton Name="tbUpperLowerSymbols"
                           Grid.Row="1"
                           IsChecked="False"
                           Content="Нижний регистр"
                           Style="{StaticResource ToggleButtonBlackTheme}" 
-                          IsThreeState="True" Click="tbUpperLowerSymbols_Click"
-                          />
+                          IsThreeState="True" Click="tbUpperLowerSymbols_Click"/>
 
             <ToggleButton Name="tbUnique"
                           IsChecked="False"
                           Content="Без повторений" 
                           Grid.Row="1"
-                          Style="{StaticResource ToggleButtonBlackTheme}" Click="tbUnique_Click" 
-                          />
+                          Style="{StaticResource ToggleButtonBlackTheme}" Click="tbUnique_Click"/>
+
+            <ToggleButton Name="tbRuSymbols"
+                          IsChecked="False"
+                          Content="Добавить русские символы" 
+                          Grid.Row="1"
+                          Style="{StaticResource ToggleButtonBlackTheme}" Click="tbRuSymbols_Click"/>
         </StackPanel>
 
         <Button Name="bRefresh"    
