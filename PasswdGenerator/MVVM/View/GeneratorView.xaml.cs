@@ -136,7 +136,7 @@ namespace PasswdGenerator.MVVM.View
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            sLength.Value = 12;
+            sLength.Value = 64;
         }
     }
 }

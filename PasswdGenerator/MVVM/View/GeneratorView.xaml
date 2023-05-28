@@ -9,22 +9,27 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
-            <RowDefinition/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <TextBox Name="tbGeneratedPasswd" Grid.ColumnSpan="3" 
+        <Border Grid.ColumnSpan="3"
+                Margin="5"
+                BorderThickness="1"
+                CornerRadius="10" BorderBrush="#FF5F5F5F">
+        <TextBox Name="tbGeneratedPasswd" 
+                 TextWrapping="Wrap"
+                 BorderThickness="0"
                  Background="Transparent" 
                  FontSize="30" 
                  Foreground="White" 
                  FontWeight="Bold"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"/>
+                 TextAlignment="Center"/>
+        </Border>
 
         <StackPanel Grid.Row="1">
             <Slider Name="sLength" 
