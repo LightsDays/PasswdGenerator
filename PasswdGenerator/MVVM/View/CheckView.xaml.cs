@@ -124,44 +124,60 @@ namespace PasswdGenerator.MVVM.View
                 case 0:
                 case 1:
                     bCheck.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 157, 157, 157));
-                    tbCheck.Text = "Слишком простой пароль. Не подходит для повседневного использования";
+                    tbCheckRareResult.Foreground = new SolidColorBrush(Color.FromArgb(255, 157, 157, 157));
+                    tbCheckRareResult.Text = "НИЗКИЙ";
+                    tbCheckResultText.Text = "Слишком простой пароль. Не подходит для повседневного использования. Рекомендуется сгенерировать новый";
                     break;
 
                 case 2:
                     bCheck.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
-                    tbCheck.Text = "Это обычный и простой пароль";
+                    tbCheckRareResult.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+                    tbCheckRareResult.Text = "ОБЫЧНЫЙ";
+                    tbCheckResultText.Text = "Простой пароль. Рекомендуется сгенерировать новый";
                     break;
 
                 case 3:
-                    bCheck.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 30, 255, 0));
-                    tbCheck.Text = "Это необычный пароль, но достаточно легкий";
+                    bCheck.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 22, 185, 0));
+                    tbCheckRareResult.Foreground = new SolidColorBrush(Color.FromArgb(255, 22, 185, 0));
+                    tbCheckRareResult.Text = "НЕОБЫЧНЫЙ";
+                    tbCheckResultText.Text = "Это необычный пароль, но достаточно надежный. Повысте сложность или сгенерируйте новый";
                     break;
 
                 case 4:
                 case 5:
                     bCheck.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 0, 112, 221));
-                    tbCheck.Text = "Это редкий пароль, но можно лучше";
+                    tbCheckRareResult.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 112, 221));
+                    tbCheckRareResult.Text = "РЕДКИЙ";
+                    tbCheckResultText.Text = "Средний пароль. Для стабильности рекомендуется повысить его сложность";
                     break;
 
                 case 6:
                 case 7:
                     bCheck.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 163, 53, 238));
-                    tbCheck.Text = "Это эпичный пароль";
+                    tbCheckRareResult.Foreground = new SolidColorBrush(Color.FromArgb(255, 163, 53, 238));
+                    tbCheckRareResult.Text = "ЭПИЧНЫЙ";
+                    tbCheckResultText.Text = "Надежный пароль. Подходит для повседневного использования";
                     break;
 
                 case 8:
                 case 9:
                     bCheck.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 255, 128, 0));
-                    tbCheck.Text = "Это легендарный пароль. Неверноятно!";
+                    tbCheckRareResult.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 128, 0));
+                    tbCheckRareResult.Text = "ЛЕГЕНДАРНЫЙ";
+                    tbCheckResultText.Text = "В надежности этого пароля не стоит сомневаться. Он прослужит вам долгие столетия. Можно передавать по наследству";
                     break;
 
                 default:
                     bCheck.Visibility = Visibility.Hidden;
                     bGoGenerate.Visibility = Visibility.Hidden;
+                    tbCheckRareResult.Visibility = Visibility.Hidden;
+                    tbCheckResultText.Visibility = Visibility.Hidden;
                     break;
             }
             bCheck.Visibility = Visibility.Visible;
             bGoGenerate.Visibility = Visibility.Visible;
+            tbCheckRareResult.Visibility = Visibility.Visible;
+            tbCheckResultText.Visibility = Visibility.Visible;
         }
     }
 }
