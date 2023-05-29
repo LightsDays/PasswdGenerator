@@ -32,15 +32,32 @@ namespace PasswdGenerator.MVVM.View
 
         private void btnCheck_Click(object sender, RoutedEventArgs e)
         {
+            /*
++ англ. низкого регистра
++ англ. верхнего регистра
++ рус. низкого регистра
++ рус. верхнего регистра
++ числа
++ спец. символы.
++ уникальность (символов)
+уникальность (по отношению к другим паролям)
++ длина
+             */
             string passwd = tbPasswd.Text;
+            if (passwd.Length == 0) return;
+
             bool isNumber = false;
             bool isSpecSymbol = false;
             bool isUpperChar = false;
             bool isLowerChar = false;
             bool isUpperCharRu = false;
             bool isLowerCharRu = false;
-            bool isUnique = true;
-            int numCrit = 0;
+            bool isUniqueSymbol = true;
+            bool isUniquePasswd = false;
+            bool isLenght = false;
+            int countCrit = 0;
+
+            if (passwd.Length >= 8) isLenght = true;
 
             foreach (char c in passwd)
             {
@@ -75,39 +92,76 @@ namespace PasswdGenerator.MVVM.View
                 }
             }
 
-            foreach (char c1 in passwd)
+            for (int i = 0; i < passwd.Length; i++)
             {
-                foreach (char c2 in passwd)
+                for (int j = 0; j < passwd.Length; j++)
                 {
-                    if (c1 == c2)
+                    if (i == j) continue;
+                    if (passwd[i] == passwd[j])
                     {
-                        isUnique = false;
+                        isUniqueSymbol = false;
                         break;
                     }
                 }
             }
  
-            numCrit = Convert.ToInt32(isNumber) + Convert.ToInt32(isSpecSymbol) + Convert.ToInt32(isUpperChar) + Convert.ToInt32(isLowerChar)
-                + Convert.ToInt32(isUpperCharRu) + Convert.ToInt32(isLowerCharRu) + Convert.ToInt32(isUnique);
+            countCrit = Convert.ToInt32(isNumber) + Convert.ToInt32(isSpecSymbol) + Convert.ToInt32(isUpperChar) + Convert.ToInt32(isLowerChar)
+                + Convert.ToInt32(isUpperCharRu) + Convert.ToInt32(isLowerCharRu) + Convert.ToInt32(isUniqueSymbol) + Convert.ToInt32(isLenght);
 
 
-            //for (int i = 0; i < str.Length; i++)
-            //{
-            //    tmp = 0;
-            //    for (int j = 0; j < str.Length; j++)
-            //    {
-            //        if (str[i] == str[j])
-            //        {
-            //            tmp++;
-            //        }
-            //    }
-            //    if (tmp == 1)
-            //    {
-            //        Console.WriteLine("Уникальный символ {0}", str[i]);
-            //        count++;
-            //    }
-            //}
+            // Серый - <1 157	157	157
+            // Белый <2	255	255	255
+            // Зеленый - < 3 30	255	0	
+            // Синий < 5 0	112	221
+            // Фиолетовый < 7 163	53	238
+            // Легендарный < 9 255	128	0
 
+            if (isLenght == false) countCrit--;
+
+            switch (countCrit)
+            {
+                case -1:
+                case 0:
+                case 1:
+                    bCheck.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 157, 157, 157));
+                    tbCheck.Text = "Слишком простой пароль. Не подходит для повседневного использования";
+                    break;
+
+                case 2:
+                    bCheck.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+                    tbCheck.Text = "Это обычный и простой пароль";
+                    break;
+
+                case 3:
+                    bCheck.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 30, 255, 0));
+                    tbCheck.Text = "Это необычный пароль, но достаточно легкий";
+                    break;
+
+                case 4:
+                case 5:
+                    bCheck.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 0, 112, 221));
+                    tbCheck.Text = "Это редкий пароль, но можно лучше";
+                    break;
+
+                case 6:
+                case 7:
+                    bCheck.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 163, 53, 238));
+                    tbCheck.Text = "Это эпичный пароль";
+                    break;
+
+                case 8:
+                case 9:
+                    bCheck.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 255, 128, 0));
+                    tbCheck.Text = "Это легендарный пароль. Неверноятно!";
+                    break;
+
+                default:
+                    bCheck.Visibility = Visibility.Hidden;
+                    bGoGenerate.Visibility = Visibility.Hidden;
+                    break;
+            }
+            bCheck.Visibility = Visibility.Visible;
+            bGoGenerate.Visibility = Visibility.Visible;
         }
     }
 }

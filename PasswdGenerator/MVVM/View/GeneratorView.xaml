@@ -81,7 +81,8 @@
 
         <Button Name="bRefresh"    
                 Grid.Row="1"    
-                Grid.Column="2"    
+                Grid.Column="2"
+                Height="50"
                 HorizontalAlignment="Left"    
                 VerticalAlignment="Top"   
                 Margin="5"
@@ -94,7 +95,7 @@
                 Margin="5"
                 Grid.Row="1"
                 VerticalAlignment="Top"
-                Height="35"
+                Height="50"
                 Style="{StaticResource InteractionBorderBlackTheme}">
             <Button Name="btnCopy" 
                     Content="Скопировать"

@@ -9,8 +9,9 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -19,7 +20,7 @@
         </Grid.ColumnDefinitions>
 
         <Border Grid.ColumnSpan="2"
-                Margin="5"
+                Margin="5,5,5,5"
                 BorderThickness="1"
                 CornerRadius="10" BorderBrush="#FF5F5F5F">
             <TextBox Name="tbPasswd" 
@@ -39,7 +40,7 @@
                    TextAlignment="Center"
                    VerticalAlignment="Center"
                    Grid.ColumnSpan="2"
-                   Foreground="#FF535559">
+                   Foreground="#FF535559" Height="40">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -57,25 +58,44 @@
                 Style="{StaticResource InteractionBorderBlackTheme}">
             <Button Name="btnCheck" 
                     Content="Проверить"
-                    FontSize="24"
+                    FontSize="26"
                     Style="{StaticResource InteractionButtonBlackTheme}" Click="btnCheck_Click"/>
         </Border>
 
-        <Border Grid.ColumnSpan="3"
-                Grid.Row="2"
+        <Border Name="bCheck"
+                Grid.ColumnSpan="3"
+                Grid.RowSpan="3"
+                Grid.Row="1"
                 Margin="5"
-                BorderThickness="1"
-                CornerRadius="10" BorderBrush="#FF5F5F5F">
-            <TextBox Name="Test" 
+                
+                BorderThickness="2">
+            <TextBox Name="tbCheck"
+                     Margin="10"
+                     Height="80"
                      TextWrapping="Wrap"
                      BorderThickness="0"        
                      Background="Transparent"         
                      FontSize="30"        
                      Foreground="White"         
                      FontWeight="Bold"
-                     VerticalAlignment="Center"
+                     VerticalAlignment="Top"
                      TextAlignment="Center" 
-                     CaretBrush="White"/>
+                     CaretBrush="White" 
+                     IsReadOnly="True"/>
         </Border>
+
+        <Border Name="bGoGenerate"
+                Grid.Column="1"
+                Grid.Row="2"
+                Visibility="Hidden"
+                Margin="5,5,5,5"
+                Style="{StaticResource InteractionBorderBlackTheme}">
+            <Button Name="btnGoGenerate" 
+                    Content="Сгенерировать новый"
+                    FontSize="26"
+                    Style="{StaticResource InteractionButtonBlackTheme}"/>
+        </Border>
+
+
     </Grid>
 </UserControl>
