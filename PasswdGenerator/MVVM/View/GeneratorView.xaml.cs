@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace PasswdGenerator.MVVM.View
 {
@@ -21,6 +23,9 @@ namespace PasswdGenerator.MVVM.View
     /// </summary>
     public partial class GeneratorView : UserControl
     {
+        List<string> passwords = new();
+        string path = "pswdbase.txt";
+
         private const string lowerCaseCharsRu = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
         private const string lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
         private const string specialChars = "!@#$%^&*()_+";
@@ -29,6 +34,7 @@ namespace PasswdGenerator.MVVM.View
         public GeneratorView()
         {
             InitializeComponent();
+            lbPasswords.ItemsSource = passwords;
         }
 
         private string GeneratePassword()
@@ -132,11 +138,6 @@ namespace PasswdGenerator.MVVM.View
             GeneratePassword();
         }
 
-        private void bRefresh_Click(object sender, RoutedEventArgs e)
-        {
-            GeneratePassword();
-        }
-
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             sLength.Value = 12;
@@ -154,6 +155,81 @@ namespace PasswdGenerator.MVVM.View
         private void tbRuSymbols_Click(object sender, RoutedEventArgs e)
         {
             GeneratePassword();
+        }
+
+        private void lbPasswords_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ListBoxItem lbi = lbPasswords.SelectedItem as ListBoxItem;
+            Clipboard.Clear();
+            if (lbPasswords.SelectedItem != null)
+            {
+                Clipboard.SetText(lbPasswords.SelectedItem.ToString());
+            }
+        }
+
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            GeneratePassword();
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            passwords.Add(tbGeneratedPasswd.Text);
+            lbPasswords.Items.Refresh();
+            SavePasswdInFile();
+        }
+
+        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+            SavePasswdInFile();
+        }
+
+        private void SavePasswdInFile()
+        {
+            using (StreamWriter writer = new StreamWriter(path, false))
+            { 
+                foreach (string passwd in passwords)
+                {
+                    writer.WriteLine(EncodeDecrypt(passwd));
+                }
+            }
+        }
+
+        private void lbPasswords_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                if (lbPasswords.SelectedItem != null)
+                {
+                    _ = passwords.Remove(lbPasswords.SelectedItem.ToString());
+                    lbPasswords.Items.Refresh();
+                }
+            }
+        }
+
+        private void lbPasswords_Loaded(object sender, RoutedEventArgs e)
+        {        
+            using (StreamReader reader = new StreamReader(path))
+            {
+                string? line;
+              
+                while ((line = reader.ReadLine()) != null)
+                {
+                    passwords.Add(EncodeDecrypt(line));
+                }
+            }
+            
+            lbPasswords.Items.Refresh();
+        }
+
+        public static string EncodeDecrypt(string str)//, ushort secretKey)
+        {
+            ushort secretKey = 0x0088;
+            var ch = str.ToArray(); //преобразуем строку в символы
+            string newStr = "";      //переменная которая будет содержать зашифрованную строку
+            foreach (var c in ch)  //выбираем каждый элемент из массива символов нашей строки
+                newStr += (char)(c ^ secretKey);  //производим шифрование каждого отдельного элемента и сохраняем его в строку
+            return newStr;
         }
     }
 }

@@ -4,15 +4,28 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PasswdGenerator.MVVM.View"
+             
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Unloaded="UserControl_Unloaded" Loaded="UserControl_Loaded">
     <Grid>
-        <Image Name="Logo" Source="..\..\Images\Logo.png"/>
-        <!--<TextBlock Text="ГЛАВНАЯ" 
-                   Foreground="White" 
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   FontSize="40"
-                   FontWeight="Bold"/>-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Name="Logo"
+               Grid.Column="1"
+               Grid.ColumnSpan="2"
+               Source="..\..\Images\Logo.png"/>
+
+        <ListBox Name="lbPasswords"
+                 BorderThickness="0"
+                 Foreground="#FF0E86CA"
+                 Background="Transparent"
+                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                 MouseDoubleClick="lbPasswords_MouseDoubleClick"
+                 KeyUp="lbPasswords_KeyUp"/>
     </Grid>
 </UserControl>

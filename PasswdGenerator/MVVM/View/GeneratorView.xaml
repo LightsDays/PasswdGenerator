@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PasswdGenerator.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -32,10 +32,21 @@
                  CaretBrush="White"/>
         </Border>
 
-        <StackPanel Grid.Row="1">
+        <ListBox Name="lbPasswords"
+                 Grid.Row="1"
+                 BorderThickness="0"
+                 Foreground="#FF0E86CA"
+                 Background="Transparent"
+                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                 MouseDoubleClick="lbPasswords_MouseDoubleClick" KeyUp="lbPasswords_KeyUp" Loaded="lbPasswords_Loaded"/>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="2"
+                    Margin="10">
             <Slider Name="sLength" 
                     HorizontalAlignment="Left"
-                    Width="120"
+                    Width="250"
                     Minimum="0" 
                     Maximum="64"
                     SelectionStart="0"
@@ -43,7 +54,6 @@
                     Interval="100" 
                     Delay="1000"
                     IsSelectionRangeEnabled="True"
-
                     ValueChanged="sLength_ValueChanged" Foreground="#FF100237" BorderBrush="#FFC32222" />
 
             <ToggleButton Name="tbNumbers" 
@@ -79,28 +89,39 @@
                           Style="{StaticResource ToggleButtonBlackTheme}" Click="tbRuSymbols_Click"/>
         </StackPanel>
 
-        <Button Name="bRefresh"    
-                Grid.Row="1"    
-                Grid.Column="2"
-                Height="50"
-                HorizontalAlignment="Left"    
-                VerticalAlignment="Top"   
-                Margin="5"
-                Background="Transparent"    
-                Style="{StaticResource RefreshButtonBlackTheme}"      
-                ToolTip="Обновить"    
-                Click="bRefresh_Click"/>
+        
+        <StackPanel Grid.Column="1"
+                    Grid.Row="1"
+                    Margin="10">
+            <Border Margin="5"
+                    VerticalAlignment="Top"
+                    Height="50"
+                    Style="{StaticResource InteractionBorderBlackTheme}">
+                <Button Name="btnCopy" 
+                        Content="Скопировать"
+                        FontSize="24"
+                        Style="{StaticResource InteractionButtonBlackTheme}" Click="btnCopy_Click"/>
+            </Border>
 
-        <Border Grid.Column="1"
-                Margin="5"
-                Grid.Row="1"
-                VerticalAlignment="Top"
-                Height="50"
-                Style="{StaticResource InteractionBorderBlackTheme}">
-            <Button Name="btnCopy" 
-                    Content="Скопировать"
-                    FontSize="24"
-                    Style="{StaticResource InteractionButtonBlackTheme}" Click="btnCopy_Click"/>
-        </Border>
+            <Border Margin="5"
+                    VerticalAlignment="Top"
+                    Height="50"
+                    Style="{StaticResource InteractionBorderBlackTheme}">
+                <Button Name="btnRefresh" 
+                        Content="Обновить"
+                        FontSize="24"
+                        Style="{StaticResource InteractionButtonBlackTheme}" Click="btnRefresh_Click"/>
+            </Border>
+
+            <Border Margin="5"
+                    VerticalAlignment="Top"
+                    Height="50"
+                    Style="{StaticResource InteractionBorderBlackTheme}">
+                <Button Name="btnSave" 
+                        Content="Сохранить"
+                        FontSize="24"
+                        Style="{StaticResource InteractionButtonBlackTheme}" Click="btnSave_Click"/>
+            </Border>
+        </StackPanel>
     </Grid>
 </UserControl>
