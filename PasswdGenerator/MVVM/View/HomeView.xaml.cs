@@ -25,12 +25,17 @@ namespace PasswdGenerator.MVVM.View
     {
         List<byte[]> bytePasswords = new();
         List<string> passwords = new();
-        string path = "pswdbase.txt";
+        string path = "pswdb";
 
         public HomeView()
         {
             InitializeComponent();
             lbPasswords.ItemsSource = passwords;
+
+            if (!File.Exists(path))
+            {
+                using (StreamWriter writer = new StreamWriter(path, false)) { };
+            }
         }
 
         private void lbPasswords_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -45,12 +50,24 @@ namespace PasswdGenerator.MVVM.View
 
         private void lbPasswords_KeyUp(object sender, KeyEventArgs e)
         {
+            int savedIndex;
             if (e.Key == Key.Delete)
             {
                 if (lbPasswords.SelectedItem != null)
                 {
+                    savedIndex = lbPasswords.SelectedIndex;
                     _ = passwords.Remove(lbPasswords.SelectedItem.ToString());
                     lbPasswords.Items.Refresh();
+
+                    if (savedIndex <= lbPasswords.Items.Count - 1)
+                    {
+                        lbPasswords.SelectedIndex = savedIndex;
+                    }
+                    else if (lbPasswords.Items.Count > 0)
+                    {
+                        savedIndex--;
+                        lbPasswords.SelectedIndex = savedIndex;
+                    }
                 }
             }
         }

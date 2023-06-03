@@ -24,7 +24,7 @@ namespace PasswdGenerator.MVVM.View
     public partial class GeneratorView : UserControl
     {
         List<string> passwords = new();
-        string path = "pswdbase.txt";
+        string path = "pswdb";
 
         private const string lowerCaseCharsRu = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
         private const string lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
@@ -35,6 +35,11 @@ namespace PasswdGenerator.MVVM.View
         {
             InitializeComponent();
             lbPasswords.ItemsSource = passwords;
+
+            if (!File.Exists(path))
+            {
+                using (StreamWriter writer = new StreamWriter(path, false)) { };
+            }
         }
 
         private string GeneratePassword()
@@ -197,20 +202,34 @@ namespace PasswdGenerator.MVVM.View
 
         private void lbPasswords_KeyUp(object sender, KeyEventArgs e)
         {
+            int savedIndex;
             if (e.Key == Key.Delete)
             {
                 if (lbPasswords.SelectedItem != null)
                 {
+                    savedIndex = lbPasswords.SelectedIndex;
                     _ = passwords.Remove(lbPasswords.SelectedItem.ToString());
                     lbPasswords.Items.Refresh();
+
+                    if (savedIndex <= lbPasswords.Items.Count - 1)
+                    {
+                        lbPasswords.SelectedIndex = savedIndex;
+                    }
+                    else if (lbPasswords.Items.Count > 0)
+                    {
+                        savedIndex--;
+                        lbPasswords.SelectedIndex = savedIndex;
+                    }
                 }
             }
         }
 
         private void lbPasswords_Loaded(object sender, RoutedEventArgs e)
-        {        
+        {   
+            
             using (StreamReader reader = new StreamReader(path))
             {
+                
                 string? line;
               
                 while ((line = reader.ReadLine()) != null)
