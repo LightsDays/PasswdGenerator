@@ -105,7 +105,7 @@
             <Button Name="btnGoGenerate" 
                     Content="Сгенерировать новый"
                     FontSize="26"
-                    Style="{StaticResource InteractionButtonBlackTheme}"/>
+                    Style="{StaticResource InteractionButtonBlackTheme}" Click="btnGoGenerate_Click"/>
         </Border>
 
 

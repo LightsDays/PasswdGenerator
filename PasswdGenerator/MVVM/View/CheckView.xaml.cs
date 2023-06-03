@@ -179,5 +179,10 @@ namespace PasswdGenerator.MVVM.View
             tbCheckRareResult.Visibility = Visibility.Visible;
             tbCheckResultText.Visibility = Visibility.Visible;
         }
+
+        private void btnGoGenerate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

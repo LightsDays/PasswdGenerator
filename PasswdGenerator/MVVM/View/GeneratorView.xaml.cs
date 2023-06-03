@@ -221,6 +221,7 @@ namespace PasswdGenerator.MVVM.View
                         lbPasswords.SelectedIndex = savedIndex;
                     }
                 }
+                SavePasswdInFile();
             }
         }
 
