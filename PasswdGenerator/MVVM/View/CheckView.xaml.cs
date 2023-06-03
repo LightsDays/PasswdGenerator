@@ -169,13 +169,13 @@ namespace PasswdGenerator.MVVM.View
 
                 default:
                     bCheck.Visibility = Visibility.Hidden;
-                    bGoGenerate.Visibility = Visibility.Hidden;
+                    //bGoGenerate.Visibility = Visibility.Hidden;
                     tbCheckRareResult.Visibility = Visibility.Hidden;
                     tbCheckResultText.Visibility = Visibility.Hidden;
                     break;
             }
             bCheck.Visibility = Visibility.Visible;
-            bGoGenerate.Visibility = Visibility.Visible;
+            //bGoGenerate.Visibility = Visibility.Visible;
             tbCheckRareResult.Visibility = Visibility.Visible;
             tbCheckResultText.Visibility = Visibility.Visible;
         }
