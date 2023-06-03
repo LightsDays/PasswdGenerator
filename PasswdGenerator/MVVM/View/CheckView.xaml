@@ -96,7 +96,7 @@
                    TextAlignment="Center"/>
 
 
-        <Border Name="bGoGenerate"
+        <!--<Border Name="bGoGenerate"
                 Grid.Column="1"
                 Grid.Row="3"
                 Visibility="Hidden"
@@ -106,7 +106,7 @@
                     Content="Сгенерировать новый"
                     FontSize="26"
                     Style="{StaticResource InteractionButtonBlackTheme}" Click="btnGoGenerate_Click"/>
-        </Border>
+        </Border>-->
 
 
     </Grid>
